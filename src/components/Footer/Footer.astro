@@ -1,10 +1,8 @@
 ---
-// Importa los iconos y estilos necesarios
 import '../../styles/globals.css';
 import { Icon } from 'astro-icon/components';
 ---
 
-<!-- Footer.astro -->
 <style>
   .footer {
     padding: 2rem;
@@ -16,20 +14,22 @@ import { Icon } from 'astro-icon/components';
 
   .footer-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Cambia a columna por defecto */
     align-items: center;
     max-width: var(--container-max-width);
     margin: 0 auto;
   }
 
-    .logo img {
-        height: 40px;
-        margin: 1rem;
-    }
+  .logo img {
+    height: 40px;
+    margin: 1rem;
+  }
 
-  .footer-links {
+  .footer-links, .footer-icons {
     display: flex;
     gap: 1.5rem;
+    flex-wrap: wrap; /* Permite que los elementos se muevan a una nueva línea si es necesario */
+    justify-content: center; /* Centra los elementos */
   }
 
   .footer-links a {
@@ -43,22 +43,24 @@ import { Icon } from 'astro-icon/components';
     color: var(--primary-color);
   }
 
-  .footer-icons {
-    display: flex;
-    gap: 1.5rem;
-  }
-
   .footer-icons .icon {
     width: 2rem;
     height: 2rem;
     color: var(--primary-color); /* Color de los íconos */
+  }
+
+  /* Media query para pantallas más grandes */
+  @media (min-width: 768px) {
+    .footer-content {
+      flex-direction: row; /* Cambia a fila en pantallas más grandes */
+      justify-content: space-between; /* Espacia los elementos */
+    }
   }
 </style>
 
 <footer class="footer">
   <div class="footer-content">
     <div class="logo">
-      <!-- Aquí puedes agregar tu logo -->
       <img src="/images/logos/logo/logo.png" alt="Logo" />
     </div>
     <div class="footer-links">
