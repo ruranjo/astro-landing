@@ -1,0 +1,204 @@
+---
+
+import '../../styles/globals.css';
+import { Icon } from 'astro-icon/components';
+
+---
+
+<!-- ContactSection.astro -->
+<style>
+  .contact-section {
+    padding: 2rem;
+    background-color: var(--background-color);
+    font-family: var(--font-family-custom);
+    color: var(--text-color);
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+  }
+
+  .form-container {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600; /* SemiBold */
+  }
+
+  .form-container p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-weight: 300; /* Light */
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400; /* Regular */
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-family: var(--font-family-custom);
+  }
+
+  .form-group button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: var(--font-family-custom);
+  }
+
+  .form-group button:hover {
+    background-color: var(--button-bg-hover);
+  }
+
+  .cards-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .card {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-icon {
+    width: 2.5rem; /* Tamaño ajustado */
+    height: 2.5rem; /* Tamaño ajustado */
+    margin-right: 1rem;
+    color: var(--primary-color); /* Color de los íconos */
+  }
+
+  .card h3 {
+    font-size: 1.125rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600; /* SemiBold */
+  }
+
+  .card p {
+    color: #666;
+    margin: 0;
+    font-weight: 300; /* Light */
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<section class="contact-section">
+  <div class="container">
+    <!-- Columna Izquierda: Formulario -->
+    <div class="form-container">
+      <h2>Contáctanos</h2>
+      <p>Por favor completa el siguiente formulario y nos pondremos en contacto contigo.</p>
+
+      <form>
+        <div class="form-group">
+          <label for="firstName">Nombre</label>
+          <input id="firstName" type="text" required />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Apellido</label>
+          <input id="lastName" type="text" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Correo Electrónico</label>
+          <input id="email" type="email" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Número de Teléfono</label>
+          <input id="phone" type="tel" required />
+        </div>
+        <div class="form-group">
+          <label for="company">Compañía</label>
+          <input id="company" type="text" required />
+        </div>
+        <div class="form-group">
+          <label for="country">País</label>
+          <select id="country" required>
+            <option value="">Selecciona un país</option>
+            <option value="us">Estados Unidos</option>
+            <option value="mx">México</option>
+            <option value="es">España</option>
+            <!-- Agrega más opciones aquí -->
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Columna Derecha: Tarjetas -->
+    <div class="cards-container">
+      <!-- Tarjeta de Ecommerce -->
+      <div class="card">
+        <Icon name="cart" class="card-icon" />
+        <div>
+          <h3>Ecommerce</h3>
+          <p>Soluciones completas para tus necesidades de ecommerce.</p>
+        </div>
+      </div>
+      <!-- Tarjeta de Email System -->
+      <div class="card">
+        <Icon name="letter" class="card-icon" />
+        <div>
+          <h3>Email System</h3>
+          <p>Sistemas de email eficientes y personalizados.</p>
+        </div>
+      </div>
+      <!-- Tarjeta de Video Production -->
+      <div class="card">
+        <Icon name="videocamera" class="card-icon" />
+        <div>
+          <h3>Video Production</h3>
+          <p>Producción de video profesional para tu negocio.</p>
+        </div>
+      </div>
+      <!-- Tarjeta de Photography -->
+      <div class="card">
+        <Icon name="camera" class="card-icon" />
+        <div>
+          <h3>Photography</h3>
+          <p>Servicios de fotografía de alta calidad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

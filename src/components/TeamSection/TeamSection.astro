@@ -1,0 +1,201 @@
+---
+import { Card } from "../Card";
+
+// Props para la primera y última tarjeta
+const firstCardProps = {
+  title: "Primera Tarjeta",
+  subtitle: "Subtítulo",
+  img: "/images/pictures/team.png",
+  description: "Descripción de la primera tarjeta",
+  direction: 'rtl'
+};
+
+const lastCardProps = {
+  title: "Última Tarjeta",
+  subtitle: "Subtítulo",
+  img: "/images/pictures/calture.png",
+  description: "Descripción de la última tarjeta",
+};
+
+// Props para las tarjetas en la sección central
+const people = [
+  {
+    img: "/images/pictures/profile1.png",
+    name: "Jose luis",
+    description: "Maecenas fermentum sit amet urna vel porttitor. Mauris bibendum volutpat ultricies.",
+    position: "Cargo 1",
+  },
+  {
+    img: "/images/pictures/profile2.png",
+    name: "Luisa li",
+    description: "Maecenas fermentum sit amet urna vel porttitor. Mauris bibendum volutpat ultricies.",
+    position: "Cargo 2",
+  },
+  {
+    img: "/images/pictures/profile3.png",
+    name: "Jenny Costa",
+    description: "Maecenas fermentum sit amet urna vel porttitor. Mauris bibendum volutpat ultricies.",
+    position: "Cargo 3",
+  },
+  {
+    img: "/images/pictures/profile4.png",
+    name: "Alfredo Vargas",
+    description: "Maecenas fermentum sit amet urna vel porttitor. Mauris bibendum volutpat ultricies.",
+    position: "Cargo 4",
+  },
+];
+---
+
+<section class="team-section">
+  <!-- Tarjetas principales -->
+  <div class="group-cards">
+    <div class="card-container">
+      <Card {...firstCardProps} />
+    </div>
+
+    <div class="card-container">
+      <Card {...lastCardProps} />
+    </div>
+  </div>
+
+  <!-- Sección de personas -->
+  <div class="people-section">
+    {people.map((person) => (
+      <div class="person-card">
+        <div class="person-image">
+          <img src={person.img} alt={person.name} />
+        </div>
+        <div class="person-info">
+          <p class="person-description">{person.description}</p>
+          <h3 class="person-name">{person.name}</h3>
+          <p class="person-position">{person.position}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+/* Estilos generales para la sección del equipo */
+.team-section {
+  background-color: var(--background-color);
+  border-radius: 1rem;
+  margin: var(--margin);
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--container-max-width);
+  width: 100%;
+}
+
+/* Contenedor para las tarjetas principales */
+.group-cards {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente las tarjetas */
+  gap: var(--margin);
+  margin-bottom: var(--margin);
+  width: 100%;
+}
+
+.card-container {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Sección de personas */
+.people-section {
+  background-color: var(--background-color);
+  padding: 3rem;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Por defecto, 2 columnas */
+  gap: var(--margin);
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-bottom: var(--margin);
+}
+
+/* Tarjeta de persona */
+.person-card {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white; /* Color de fondo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  transition: transform 0.3s ease; /* Animación en hover */
+}
+
+.person-card:hover {
+  transform: translateY(-5px); /* Efecto al pasar el mouse */
+}
+
+/* Imagen de la persona */
+.person-image {
+  flex: 0 0 150px; /* Fija el ancho de la imagen */
+  height: 150px; /* Fija la altura de la imagen */
+}
+
+.person-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen se adapte bien */
+}
+
+/* Información de la persona */
+.person-info {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente el texto */
+}
+
+/* Nombre y cargo de la persona */
+.person-name {
+  font-family: var(--font-family-custom);
+  font-size: 1.5rem;
+  color: var(--highlight-color); /* Color del nombre */
+  margin-bottom: 0.5rem;
+}
+
+.person-position {
+  color: var(--secondary-color);
+  margin: 0; /* Elimina márgenes predeterminados */
+}
+
+.person-description {
+  font-style: italic;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 1024px) {
+  .people-section {
+    grid-template-columns: repeat(1, 1fr); /* 1 columna en pantallas medianas */
+  }
+}
+
+@media (max-width: 768px) {
+  .group-cards {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+  }
+  .card-container {
+    width: 90%;
+    max-width: 100%;
+  }
+  .people-section {
+    grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+  }
+  .person-card {
+    flex-direction: column;
+  }
+  .team-section {
+    background-color: transparent;
+  }
+}
+</style>

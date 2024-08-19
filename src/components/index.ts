@@ -1,0 +1,6 @@
+export * from './HeroSection'
+export * from './Card'
+export * from './OurClientsSection'
+export * from './ContactUsSection'
+export * from './TeamSection'
+export * from './Footer'

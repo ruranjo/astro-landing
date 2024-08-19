@@ -1,0 +1,189 @@
+---
+import '@/styles/globals.css'; // Ajusta la ruta según tu estructura de proyecto
+import { Icon } from 'astro-icon/components';
+
+const { title, subtitle, imageUrl } = Astro.props;
+---
+
+<!-- HeroSection.astro -->
+<section class="hero-section">
+  <div class="hero">
+    <div class="hero-content fade-in">
+      <h1 class="hero-title">{title}</h1>
+      <h2 class="hero-subtitle">{subtitle}</h2>
+    </div>
+
+    <div class="hero-image-container fade-in">
+      <img src={imageUrl} alt="Imagen de Hero" class="hero-image" />
+    </div>
+  </div>
+
+  <div class="icon-container fade-in">
+    <div class="date-icon-container">
+      <div class="date-icon">
+        <Icon name="arrow" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Estilos generales */
+[data-icon] {
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
+.hero-section {
+  margin: 2rem auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background-color);
+  overflow: hidden;
+  border-radius: 1rem; /* Redondear esquinas del contenedor */
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 50%;
+}
+
+.hero-title {
+  font-family: var(--font-family-custom);
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-family: var(--font-family-custom);
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+}
+
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 50%; /* Hacer la imagen circular */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agregar sombra a la imagen */
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.date-icon-container {
+  position: relative;
+}
+
+.date-icon {
+  display: inline-block;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-7px);
+  }
+}
+
+/* Animación de aparición lenta */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 3s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .hero-image {
+    max-width: 80%;
+  }
+
+  .icon-container {
+    margin-top: 1.5rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 380px;
+    width: 100%;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-title {
+    width: 300px;
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-image {
+    max-width: 90%;
+  }
+
+  .icon-container {
+    margin-top: 1rem;
+  }
+}
+</style>

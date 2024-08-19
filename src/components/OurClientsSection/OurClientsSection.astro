@@ -1,0 +1,91 @@
+---
+type OurClientsSectionProps = {
+  title?: string;
+  clientLogosList: string[];
+};
+
+// Usa las props de Astro
+const { title = 'CLIENTS THAT LOVE US', clientLogosList } = Astro.props as OurClientsSectionProps;
+---
+
+<section class="our-clients-section">
+    <h2 class="section-title">{title}</h2>
+    <div class="grid-container">
+        <div class="client-logos-grid">
+            {clientLogosList.map((logo, index) => (
+            <div class="client-logo">
+                <img src={logo} alt={`Client ${index + 1}`} />
+            </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+ .our-clients-section {
+  margin: 5rem;
+  padding: var(--padding);
+  text-align: center;
+  font-family: var(--font-family-custom);
+  background-color: var(--background-color);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: var(--margin);
+  color: var(--text-color);
+  font-weight: 700; /* Usando Open Sans Bold */
+}
+
+.grid-container {
+
+  margin: 0 auto; /* Centrar el contenedor de la cuadrícula */
+  padding: 5rem;
+  border-radius: 8px; /* Opcional: agrega bordes redondeados */
+  
+}
+
+.client-logos-grid {
+ 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas por defecto */
+  grid-template-rows: repeat(auto, minmax(150px, auto)); /* Ajusta el tamaño mínimo de las filas */
+  gap: 2rem; /* Ajusta el espacio entre los elementos */
+  justify-content: center; /* Centrar la cuadrícula en el contenedor */
+}
+
+.client-logo {
+
+  display: flex;
+  justify-content: center; /* Centrar la imagen dentro del contenedor */
+  align-items: center; /* Centrar la imagen verticalmente */
+  min-width: 150px; /* Tamaño mínimo fijo del contenedor */
+  min-height: 150px; /* Tamaño mínimo fijo del contenedor */
+}
+
+.client-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ajusta el tamaño de la imagen sin distorsionar */
+  display: block; /* Asegura que no haya espacio debajo de la imagen */
+}
+
+/* Responsividad */
+@media (max-width: 1200px) {
+  .client-logos-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 900px) {
+  .client-logos-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas aún más pequeñas */
+  }
+}
+
+@media (max-width: 600px) {
+  .client-logos-grid {
+    grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+  }
+}
+</style>

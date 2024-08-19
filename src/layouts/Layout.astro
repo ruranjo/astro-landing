@@ -1,0 +1,112 @@
+---
+import '@/styles/globals.css'; // Ajusta la ruta según tu estructura de carpetas
+import {Header} from '../components/Layout'
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+	<Header />
+	<slot />
+  </body>
+</html>
+
+<style is:global>
+  /* Aplicar variables CSS */
+
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-custom);
+  line-height: 1.6;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none; /* Asegura que el enlace no esté subrayado por defecto */
+}
+
+a:hover {
+  text-decoration: none; /* Elimina el subrayado cuando se pasa el ratón por encima */
+}
+
+button {
+  padding: var(--padding) var(--padding);
+  border: none;
+  border-radius: 4px;
+  background-color: var(--button-bg);
+  color: white;
+  font-size: var(--font-size);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-bg-hover);
+}
+
+ul, ol {
+  list-style: none; /* Elimina los puntos o números en las listas */
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: var(--container-width);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--padding);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -var(--padding);
+}
+
+.col {
+  flex: 1;
+  padding: var(--padding);
+}
+
+</style>

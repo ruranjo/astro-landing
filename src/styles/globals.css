@@ -1,0 +1,132 @@
+/* Open Sans Thin */
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-Thin.ttf') format('truetype'); /* Ajusta el nombre del archivo si es diferente */
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  /* Open Sans ExtraLight */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-ExtraLight.ttf') format('truetype'); /* Ajusta el nombre del archivo si es diferente */
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  /* Open Sans Light */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  /* Open Sans Regular */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  /* Open Sans Medium */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  /* Open Sans SemiBold */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  /* Open Sans Bold */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  /* Open Sans ExtraBold */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  /* Open Sans Black */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-Black.ttf') format('truetype'); /* Ajusta el nombre del archivo si es diferente */
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  /* Open Sans Italic */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  /* Open Sans Light Italic */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  /* Open Sans SemiBold Italic */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  /* Open Sans Bold Italic */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  /* Open Sans ExtraBold Italic */
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Open_Sans/static/OpenSans-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+:root {
+    /* Variables de color */
+    --primary-color: hsl(275, 67%, 34%);
+    --secondary-color: hsl(240, 100%, 22%);
+    --background-color: hsl(196, 52%, 90%);
+    --text-color: #333;
+    --button-bg: #007bff;
+    --button-bg-hover: #0056b3;
+  
+    /* Variables de tipografía */
+    --font-family-normal: Arial, sans-serif;
+    --font-family-custom: 'Open Sans', sans-serif;
+    --font-size: 16px;
+  
+    /* Variables de espaciado */
+    --padding: 1rem;
+    --margin: 1rem;
+    --container-width: 90%;
+    --container-max-width: 1200px;
+  }

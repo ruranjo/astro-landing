@@ -1,0 +1,85 @@
+---
+// Importa los iconos y estilos necesarios
+import '../../styles/globals.css';
+import { Icon } from 'astro-icon/components';
+---
+
+<!-- Footer.astro -->
+<style>
+  .footer {
+    padding: 2rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family-custom);
+    border-top: 1px solid #ccc;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+  }
+
+    .logo img {
+        height: 40px;
+        margin: 1rem;
+    }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400; /* Regular */
+  }
+
+  .footer-links a:hover {
+    color: var(--primary-color);
+  }
+
+  .footer-icons {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-icons .icon {
+    width: 2rem;
+    height: 2rem;
+    color: var(--primary-color); /* Color de los íconos */
+  }
+</style>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="logo">
+      <!-- Aquí puedes agregar tu logo -->
+      <img src="/images/logos/logo/logo.png" alt="Logo" />
+    </div>
+    <div class="footer-links">
+      <a href="#about">Sobre Nosotros</a>
+      <a href="#services">Servicios</a>
+      <a href="#contact">Contacto</a>
+      <a href="#privacy">Política de Privacidad</a>
+    </div>
+    <div class="footer-icons">
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+        <Icon name="facebook" class="icon" />
+      </a>
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+        <Icon name="twitter" class="icon" />
+      </a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+        <Icon name="linkedin" class="icon" />
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+        <Icon name="instagram" class="icon" />
+      </a>
+    </div>
+  </div>
+</footer>

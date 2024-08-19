@@ -1,0 +1,142 @@
+---
+import { HeroSection, Card, OurClientsSection, ContactUs, TeamSection, Footer } from '@/components';
+import Layout from '@/layouts/Layout.astro';
+import '../styles/card.css';  // Importa el archivo CSS
+
+interface ServiceOrProcess {
+  type: string;
+  title: string;
+  subtitle: string;
+  img: string;
+  description: string;
+}
+
+const title = 'Bienvenido a Nuestro Sitio';
+const subtitle = "Morbi leo tortor, fermentum sed orci vitae, tempor auctor turpis. Fusce bibendum accumsan fringilla. Nulla aliquam luctus sem, at posuere nibh lobortis et. Ut ac mollis risus, eu congue libero. Nulla vestibulum ultricies tortor at ultrices.";
+const imageUrl = '/images/pictures/hero.webp'; // Ajusta la ruta según tu estructura
+
+const clientLogos = [
+  '/images/clients/client1.svg',
+  '/images/clients/client2.svg',
+  '/images/clients/client3.svg',
+  '/images/clients/client4.svg',
+  '/images/clients/client5.svg',
+  '/images/clients/client6.svg',
+  '/images/clients/client7.svg',
+  '/images/clients/client8.svg',
+];
+
+const servicesAndProcesses: ServiceOrProcess[] = [
+  {
+    type: 'service',
+    title: "Nuestros Servicios",
+    subtitle: "Lo que ofrecemos",
+    img: "/images/pictures/oficina.png",
+    description: "Morbi leo tortor, fermentum sed orci vitae, tempor auctor turpis. Fusce bibendum accumsan fringilla. Nulla aliquam luctus sem, at posuere nibh lobortis et. Ut ac mollis risus, eu congue libero. Nulla vestibulum ultricies tortor at ultrices."
+  },
+  {
+    type: 'process',
+    title: "Nuestros Procesos",
+    subtitle: "Cómo trabajamos",
+    img: "/images/pictures/industria.png",
+    description: "Morbi leo tortor, fermentum sed orci vitae, tempor auctor turpis. Fusce bibendum accumsan fringilla. Nulla aliquam luctus sem, at posuere nibh lobortis et. Ut ac mollis risus, eu congue libero. Nulla vestibulum ultricies tortor at ultrices."
+  },
+  {
+    type: 'process',
+    title: "Nuestros Procesos",
+    subtitle: "Cómo trabajamos",
+    img: "/images/pictures/ganaderia.png",
+    description: "Morbi leo tortor, fermentum sed orci vitae, tempor auctor turpis. Fusce bibendum accumsan fringilla. Nulla aliquam luctus sem, at posuere nibh lobortis et. Ut ac mollis risus, eu congue libero. Nulla vestibulum ultricies tortor at ultrices."
+  },
+  {
+    type: 'process',
+    title: "Nuestros Procesos",
+    subtitle: "Cómo trabajamos",
+    img: "/images/pictures/cultivo.png",
+    description: "Morbi leo tortor, fermentum sed orci vitae, tempor auctor turpis. Fusce bibendum accumsan fringilla. Nulla aliquam luctus sem, at posuere nibh lobortis et. Ut ac mollis risus, eu congue libero. Nulla vestibulum ultricies tortor at ultrices."
+  }
+];
+---
+
+<Layout title="Fairpay.com">
+  <main>
+    <div class="hero-section-container">
+      <HeroSection title={title} subtitle={subtitle} imageUrl={imageUrl} />
+    </div>
+    <div class="services-and-process-wrapper">
+      <div class="services-and-process-container">
+        {servicesAndProcesses.map((item,index) => (
+          <Card 
+		  	class="card"
+            title={item.title}
+            subtitle={item.subtitle}
+            img={item.img}
+            description={item.description}
+            direction={1 === index%2 ? 'rtl' : 'ltr'} // Puedes ajustar la dirección según el tipo
+          />
+        ))}
+      </div>
+    </div>
+    <OurClientsSection title = 'Clientes que nos aman' clientLogosList = {clientLogos} />
+    <ContactUs/>
+    <div class="team-container">
+      <TeamSection/>
+    </div>
+    <Footer/>
+  </main>
+</Layout>
+
+<style>
+  .hero-section-container {
+    margin-bottom: 2rem; /* Añadir margen inferior para separar HeroSection de ServicesAndProcessSection */
+  }
+  
+  .services-and-process-wrapper,
+  .team-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: var(--primary-color); /* Color de fondo general para el contenedor */
+    padding: 5rem; /* Espaciado interno */
+    margin-top: 5rem;
+  }
+  
+  .services-and-process-container,
+  .team-section-container {
+    padding: 5rem; /* Espaciado interno */
+    background-color: white; /* Fondo blanco para el contenedor de tarjetas */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 100%;
+    max-width: 1200px; /* Ajusta el ancho máximo según tus necesidades */
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a nuevas líneas */
+    gap: 1rem; /* Espaciado entre elementos */
+    justify-content: center; /* Centra los elementos en el contenedor */
+  }
+  
+  @media (max-width: 768px) {
+    .services-and-process-container,
+    .team-section-container {
+      flex-direction: column;
+      padding: 1rem; /* Reducir espaciado en pantallas más pequeñas */
+      gap: 0.5rem; /* Ajustar el espacio entre las tarjetas */
+    }
+    .services-and-process-wrapper,
+    .team-container {
+      padding: 1rem; /* Espaciado interno */
+      margin-top: 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .services-and-process-container,
+    .team-section-container {
+      width: 100%;
+    }
+  
+    .card-wrapper {
+      width: 100%; /* Las tarjetas ocupan el 100% del ancho en pantallas pequeñas */
+    }
+  }
+  </style>

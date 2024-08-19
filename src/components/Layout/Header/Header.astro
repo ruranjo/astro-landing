@@ -1,0 +1,169 @@
+---
+  import '@/styles/globals.css';
+  const urlLogin = import.meta.env.PUBLIC_LOGIN_URL;
+---
+
+<header class="header">
+  <div class="header-content">
+    
+    <div class="logo">
+      <!-- Aquí puedes agregar tu logo, por ejemplo: -->
+      <img src="/images/logos/logo/logo.png" alt="Logo" />
+    </div>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#client">Client</a></li>
+        <li><a href="#team">Team</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#contact-us" class="contact-us">Contact Us</a>
+      <a href={urlLogin} class="login">Login</a>
+    </div>
+
+   
+  </div>
+</header>
+
+<style>
+/* Estilos generales */
+.header {
+  
+  background-color: var(--background-color);
+  padding: var(--padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.logo img {
+  height: 40px;
+  margin: 1rem;
+}
+
+.nav {
+  
+  flex-grow: 1;
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-list {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: var(--padding);
+}
+
+.nav-list li a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.nav-list li a:hover {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+.header-actions {
+ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--padding); /* Ajusta el espacio entre los botones */
+}
+
+.header-actions a {
+  display: inline-block; /* Hace que los enlaces se comporten como bloques en línea */
+  padding: 0.75rem 1rem; /* Espaciado interno del botón */
+  font-size: 1rem; /* Tamaño de la fuente */
+  font-weight: bold; /* Fuente en negrita */
+  color: var(--secondary-color); /* Color del texto */
+  background-color: transparent; /* Fondo transparente por defecto */
+  border: 2px solid var(--secondary-color); /* Borde con el color secundario */
+  border-radius: 0.375rem; /* Bordes redondeados */
+  text-decoration: none; /* Elimina el subrayado */
+  text-align: center; /* Centra el texto */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Transiciones suaves */
+}
+
+.header-actions a:hover {
+  color: var(--primary-color); /* Color del texto al pasar el ratón */
+  border-color: var(--primary-color); /* Borde del botón al pasar el ratón */
+}
+
+.header-actions a:active {
+  background-color: var(--primary-color); /* Fondo del botón al hacer clic */
+  color: white; /* Color del texto al hacer clic */
+}
+
+
+
+/* Consultas de medios */
+@media (max-width: 1024px) {
+  
+}
+
+@media (max-width: 768px) {
+  
+  .header-content{
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav{
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-list{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-actions {
+    
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--padding); /* Ajusta el espacio entre los botones */
+  }
+
+  .login{
+  width: 140px;
+}
+}
+
+@media (max-width: 480px) {
+  
+  .header{
+    min-width: 375px;
+  }
+}
+</style>

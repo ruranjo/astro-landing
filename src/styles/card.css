@@ -1,0 +1,34 @@
+/* src/styles/cards.css */
+
+/* Define la animación para la tarjeta */
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Estilo base para las tarjetas */
+  .card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+  }
+  
+  /* Usar un retraso en la animación basado en el índice del elemento */
+  .card:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .card:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .card:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  .card:nth-child(4) {
+    animation-delay: 0.8s;
+  }
